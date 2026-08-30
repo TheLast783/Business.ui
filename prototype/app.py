@@ -6,16 +6,16 @@ import os
 import sys
 
 # Ensure root and prototype directories are in sys.path
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.dirname(CURRENT_DIR)
-for p in [CURRENT_DIR, ROOT_DIR]:
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROTOTYPE_DIR = os.path.join(ROOT_DIR, "prototype") if os.path.exists(os.path.join(ROOT_DIR, "prototype")) else ROOT_DIR
+for p in [ROOT_DIR, PROTOTYPE_DIR]:
     if p not in sys.path:
         sys.path.insert(0, p)
 
 import streamlit as st
 import pandas as pd
 
-# Setup page configuration
+# Setup page configuration - Must be the first Streamlit command
 st.set_page_config(
     page_title="BusinessIntelligence.ai | KPI Intelligence-to-Action Engine",
     page_icon="⚡",
@@ -23,23 +23,40 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-from prototype.engine.contracts.schemas import UserRole, ExecutiveConstraint, ScenarioExecutionResult
-from prototype.engine.scenarios.runner import ScenarioRunner
-from prototype.engine.contracts.semantic_contract import RBACMaskingEngine
-from prototype.engine.data.connectors import DataConnectorRegistry
-from prototype.engine.telemetry.feedback import FeedbackManager
-from prototype.ui.styles import CUSTOM_CSS, RBAC_BADGE_HTML
-from prototype.ui.components import (
-    render_header,
-    render_sidebar,
-    render_spc_view,
-    render_tree_view,
-    render_synthesis_view,
-    render_simulation_view,
-    render_feedback_widget,
-    render_lineage_drawer,
-    render_telemetry_box,
-)
+try:
+    from prototype.engine.contracts.schemas import UserRole, ExecutiveConstraint, ScenarioExecutionResult
+    from prototype.engine.scenarios.runner import ScenarioRunner
+    from prototype.engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContractManager
+    from prototype.engine.data.connectors import DataConnectorRegistry
+    from prototype.engine.data.loader import MultiSourceDataLoader
+    from prototype.engine.telemetry.feedback import FeedbackManager
+    from prototype.ui.styles import CUSTOM_CSS, RBAC_BADGE_HTML
+    from prototype.ui.components.header import render_header
+    from prototype.ui.components.sidebar import render_sidebar
+    from prototype.ui.components.spc_view import render_spc_view
+    from prototype.ui.components.tree_view import render_tree_view
+    from prototype.ui.components.synthesis_view import render_synthesis_view
+    from prototype.ui.components.simulation_view import render_simulation_view
+    from prototype.ui.components.feedback_widget import render_feedback_widget
+    from prototype.ui.components.lineage_drawer import render_lineage_drawer
+    from prototype.ui.components.telemetry_box import render_telemetry_box
+except ImportError:
+    from engine.contracts.schemas import UserRole, ExecutiveConstraint, ScenarioExecutionResult
+    from engine.scenarios.runner import ScenarioRunner
+    from engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContractManager
+    from engine.data.connectors import DataConnectorRegistry
+    from engine.data.loader import MultiSourceDataLoader
+    from engine.telemetry.feedback import FeedbackManager
+    from ui.styles import CUSTOM_CSS, RBAC_BADGE_HTML
+    from ui.components.header import render_header
+    from ui.components.sidebar import render_sidebar
+    from ui.components.spc_view import render_spc_view
+    from ui.components.tree_view import render_tree_view
+    from ui.components.synthesis_view import render_synthesis_view
+    from ui.components.simulation_view import render_simulation_view
+    from ui.components.feedback_widget import render_feedback_widget
+    from ui.components.lineage_drawer import render_lineage_drawer
+    from ui.components.telemetry_box import render_telemetry_box
 
 # Inject custom styling
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
@@ -221,4 +238,3 @@ with tab_feedback:
 
     st.markdown("---")
     render_lineage_drawer(result=result, bundle=bundle)
-
