@@ -1,0 +1,35 @@
+[
+  {
+    "scenario_id": "scenario_1",
+    "star_rating": 5,
+    "predicted_driver": "",
+    "corrected_driver": "",
+    "predicted_confidence": null,
+    "was_correct": false,
+    "analyst_id": "analyst_jdoe",
+    "text_correction": "Warehouse queue resolved 6h ahead of SLA.",
+    "timestamp": "2026-08-30T08:02:31.636346"
+  },
+  {
+    "scenario_id": "scenario_1",
+    "star_rating": 5,
+    "predicted_driver": "",
+    "corrected_driver": "",
+    "predicted_confidence": null,
+    "was_correct": false,
+    "analyst_id": "analyst_jdoe",
+    "text_correction": "Warehouse queue resolved 6h ahead of SLA.",
+    "timestamp": "2026-08-30T08:21:03.149873"
+  },
+  {
+    "scenario_id": "scenario_1",
+    "star_rating": 5,
+    "predicted_driver": "",
+    "corrected_driver": "",
+    "predicted_confidence": null,
+    "was_correct": false,
+    "analyst_id": "analyst_jdoe",
+    "text_correction": "Warehouse queue resolved 6h ahead of SLA.",
+    "timestamp": "2026-08-30T17:00:19.337397"
+  }
+]
