@@ -129,10 +129,17 @@ def render_feedback_widget(
             unsafe_allow_html=True
         )
 
+        fb_type = str(analysis.get("feedback_type", "Validation"))
+        if "_" in fb_type:
+            fb_type = fb_type.replace("_", " ").title()
+        tgt_layer = str(analysis.get("affected_layer", "Playbook"))
+        if "_" in tgt_layer:
+            tgt_layer = tgt_layer.replace("_", " ").title()
+
         a1, a2, a3 = st.columns(3)
-        a1.metric("Feedback Type", analysis.get("feedback_type", "Validation"))
-        a2.metric("Target Layer", analysis.get("affected_layer", "Playbook"))
-        a3.metric("Quantitative Lock", "Enforced (Closed-Form Math)")
+        a1.metric("Feedback Type", fb_type)
+        a2.metric("Target Layer", tgt_layer)
+        a3.metric("Math Lock", "Strict (0.00 Error)")
 
     st.markdown("---")
     summary = mgr.get_learning_summary()

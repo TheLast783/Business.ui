@@ -14,7 +14,7 @@ except ImportError:
 
 def render_lineage_drawer(result: Optional[ScenarioExecutionResult] = None, bundle: Optional[Any] = None) -> None:
     """Renders the expandable evidence drawer with data source freshness SLA, calculation lineage, and raw logs."""
-    with st.expander("🔍 Traceable Evidence, Data Freshness & Governed Lineage Graph", expanded=False):
+    with st.expander("Traceable Evidence, Data Freshness & Governed Lineage Graph", expanded=False):
         st.subheader("1. Data Source Freshness & Health SLA Matrix")
         
         erp_rows = len(bundle.erp_df) if bundle is not None and hasattr(bundle, 'erp_df') and bundle.erp_df is not None else 1420
