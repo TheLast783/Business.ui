@@ -10,6 +10,23 @@ __pycache__/
 .coverage
 htmlcov/
 
+# Presentations, PDFs, and Deck Generation Scripts
+*.pptx
+*.ppt
+*.pdf
+~$*
+build_executive_presentation.py
+clean_font_fixed.py
+convert_all_to_pdf.py
+fix_deck_perfection.py
+format_pptx_as_readme.py
+generate_proposal_submission_files.py
+merge_decks.py
+polish_structure.py
+update_presentation.py
+update_warriors_deck.py
+temp_*.html
+
 # Temporary Office lock files
 ~$*.pptx
 ~$*.docx
