@@ -79,21 +79,21 @@ def render_header(result: ScenarioExecutionResult, daily_df: pd.DataFrame) -> No
         kpi1.metric(
             "Gross Revenue ($)",
             f"${gross_rev_act:,.0f}",
-            f"{delta_rev_pct:+.1f}% vs 28d Base",
+            f"{delta_rev_pct:+.1f}% vs Base",
             delta_color="inverse" if delta_rev_pct < 0 else "normal",
             help="Total realized revenue post discounts and returns across all channels"
         )
         kpi2.metric(
-            "Web Traffic (Sessions)",
+            "Web Traffic",
             f"{sess_act:,}",
-            f"{delta_sess_pct:+.1f}% vs 28d Base",
+            f"{delta_sess_pct:+.1f}% vs Base",
             delta_color="inverse" if delta_sess_pct < 0 else "normal",
             help="Hourly normalized web and mobile visitor sessions"
         )
         kpi3.metric(
             "Order Volume",
             f"{ord_act:,}",
-            f"{delta_ord_pct:+.1f}% vs 28d Base",
+            f"{delta_ord_pct:+.1f}% vs Base",
             delta_color="inverse" if delta_ord_pct < 0 else "normal",
             help="Total completed transactions in ERP ledger"
         )
