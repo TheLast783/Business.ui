@@ -366,3 +366,7 @@ class RBACMaskingEngine:
                 )
         # Analysts retain full carrier/system ID visibility for deep triage
         return masked_df
+
+
+SemanticContractManager = SemanticContract
+

@@ -26,7 +26,7 @@ st.set_page_config(
 try:
     from engine.contracts.schemas import UserRole, ExecutiveConstraint, ScenarioExecutionResult
     from engine.scenarios.runner import ScenarioRunner
-    from engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContractManager
+    from engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContract, SemanticContractManager
     from engine.data.connectors import DataConnectorRegistry
     from engine.data.loader import MultiSourceDataLoader
     from engine.telemetry.feedback import FeedbackManager
@@ -43,7 +43,7 @@ try:
 except ImportError:
     from prototype.engine.contracts.schemas import UserRole, ExecutiveConstraint, ScenarioExecutionResult
     from prototype.engine.scenarios.runner import ScenarioRunner
-    from prototype.engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContractManager
+    from prototype.engine.contracts.semantic_contract import RBACMaskingEngine, SemanticContract, SemanticContractManager
     from prototype.engine.data.connectors import DataConnectorRegistry
     from prototype.engine.data.loader import MultiSourceDataLoader
     from prototype.engine.telemetry.feedback import FeedbackManager
@@ -53,6 +53,10 @@ except ImportError:
     from prototype.ui.components.spc_view import render_spc_view
     from prototype.ui.components.tree_view import render_tree_view
     from prototype.ui.components.synthesis_view import render_synthesis_view
+    from prototype.ui.components.simulation_view import render_simulation_view
+    from prototype.ui.components.feedback_widget import render_feedback_widget
+    from prototype.ui.components.lineage_drawer import render_lineage_drawer
+    from prototype.ui.components.telemetry_box import render_telemetry_box
     from prototype.ui.components.simulation_view import render_simulation_view
     from prototype.ui.components.feedback_widget import render_feedback_widget
     from prototype.ui.components.lineage_drawer import render_lineage_drawer
